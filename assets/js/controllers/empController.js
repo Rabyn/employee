@@ -20,10 +20,7 @@ myApp.controller("empController", ["$scope", "empService", function ($scope, emp
             empService.addEmployee();
             updateEmpList();
         },
-        showInfo: function (id) {
-            console.log("Details: " + id);
-            displayConsole: empService.getEmpListFromId;
-        }
+        showInfo: empService.getEmpListFromId
     };
 
     // Below this are private Functions

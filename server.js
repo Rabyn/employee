@@ -51,7 +51,7 @@ var getServiceObj = {
     },
     personUnique: {
         query: "SELECT * FROM employee_info WHERE id=?",
-        url: basePath + "/person/:empid",
+        url: basePath + "/info/:empid",
         ids: ["empid"]
     }
 }
@@ -60,7 +60,7 @@ var getServiceObj = {
 var putServiceObj = {
     person: {
         query: "UPDATE employee_info SET ? WHERE id = ?",
-        url: basePath + "/person/:empid",
+        url: basePath + "/info/:empid",
         ids: ["empid"]
     }
 }
@@ -69,7 +69,7 @@ var putServiceObj = {
 var deleteServiceObj = {
     person: {
         query: "DELETE FROM employee_info WHERE id = ?",
-        url: basePath + "/person/:empid",
+        url: basePath + "/info/:empid",
         ids: ["empid"]
     }
 }
