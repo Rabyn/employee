@@ -17,10 +17,17 @@ myApp.controller("empController", ["$scope", "empService", function ($scope, emp
     // Click Events
     $scope.clickObj = {
         addEmploye: function () {
-            empService.addEmployee();
-            updateEmpList();
+            empService.addEmployee().then(function () {
+                updateEmpList();
+            });
         },
-        showInfo: empService.getEmpListFromId
+        showInfo: empService.getEmpListFromId,
+
+        deleteInfo: function (id) {
+            empService.deleteEmpListFromId(id).then(function () {
+                updateEmpList();
+            });
+        }
     };
 
     // Below this are private Functions
@@ -31,4 +38,4 @@ myApp.controller("empController", ["$scope", "empService", function ($scope, emp
         });
     }
 
-}]);
+            }]);

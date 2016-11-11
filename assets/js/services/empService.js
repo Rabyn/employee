@@ -45,6 +45,16 @@ myApp.service("empService", ["$http", function ($http) {
         });
     };
 
+    /* Get individual Data From Database*/
+    this.deleteEmpListFromId = function (id) {
+        return $http({
+            method: "DELETE",
+            url: "/employee/info/" + id
+        }).then(function (result) {
+            return result.data;
+        });
+    };
+
     /* Assigning Data into variables */
     function addEmployee() {
         var tempEmpObj = {
@@ -54,6 +64,6 @@ myApp.service("empService", ["$http", function ($http) {
             address: parent.empObj.address,
             phone: parent.empObj.phone
         };
-        parent.postEmpList(tempEmpObj);
+        return parent.postEmpList(tempEmpObj);
     }
 }]);
