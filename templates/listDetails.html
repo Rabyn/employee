@@ -13,7 +13,7 @@
                         <th>Email </th>
                         <th>Phone</th>
                         <th>Address</th>
-                        <th></th>
+                        <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -25,15 +25,12 @@
                         <td>{{employe.address}}</td>
                         <td>{{employe.phone}}</td>
                         <td>
-                            <button type="button" class="btn btn-success" ng-click="clickObj.showInfo(employe.id)">Show</button>
+                            <button type="button" class="btn btn-success" ng-click="clickObj.editEmpInfo(employe)">Edit</button>
                             <button type="button" class="btn btn-danger" ng-click="clickObj.deleteInfo(employe.id)">Remove</button>
                         </td>
                     </tr>
                 </tbody>
             </table>
         </div>
-
-        <hr>
-
     </div>
 </div>

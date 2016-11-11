@@ -23,19 +23,9 @@ myApp.service("empService", ["$http", function ($http) {
         });
     };
 
-    /* Get individual Data From Database*/
-    this.getEmpListFromId = function (id) {
-        return $http({
-            method: "GET",
-            url: "/employee/info/" + id
-        }).then(function (result) {
-            console.log(result.data);
-            //return result.data;
-        });
-    };
-
     /* Post Data into Database*/
     this.postEmpList = function (dataParam) {
+        console.log(dataParam);
         return $http({
             method: "POST",
             url: "/employee/info",
@@ -45,11 +35,23 @@ myApp.service("empService", ["$http", function ($http) {
         });
     };
 
-    /* Get individual Data From Database*/
+    /* Delete individual Data From Database*/
     this.deleteEmpListFromId = function (id) {
         return $http({
             method: "DELETE",
             url: "/employee/info/" + id
+        }).then(function (result) {
+            return result.data;
+        });
+    };
+
+    /* Update Data in Database*/
+    this.updateEmpList = function (dataParam) {
+        var id = dataParam.id
+        return $http({
+            method: "PUT",
+            url: "/employee/info/" + id,
+            data: dataParam
         }).then(function (result) {
             return result.data;
         });

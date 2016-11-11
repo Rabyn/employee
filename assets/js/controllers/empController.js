@@ -8,6 +8,13 @@ myApp.controller("empController", ["$scope", "empService", function ($scope, emp
         phone: "",
     };
 
+    $scope.resetPersonModel = {};
+
+    function reset() {
+        $scope.empModel = angular.copy($scope.resetPersonModel);
+        empService.empObj = $scope.empModel;
+    }
+
     empService.empObj = $scope.empModel;
 
     $scope.empArray = []; // Declare empty array
@@ -19,13 +26,25 @@ myApp.controller("empController", ["$scope", "empService", function ($scope, emp
         addEmploye: function () {
             empService.addEmployee().then(function () {
                 updateEmpList();
+                reset();
             });
         },
-        showInfo: empService.getEmpListFromId,
 
         deleteInfo: function (id) {
             empService.deleteEmpListFromId(id).then(function () {
                 updateEmpList();
+            });
+        },
+
+        editEmpInfo: function (employee) {
+            $scope.empEditModel = employee;
+            $scope.openModal();
+        },
+
+        updateEmpInfo: function (updateObj) {
+            empService.updateEmpList(updateObj).then(function () {
+                updateEmpList();
+                $scope.empEditModel = {};
             });
         }
     };
