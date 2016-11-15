@@ -20,6 +20,10 @@ app.get('/', function (req, res) {
     res.redirect('/templates/index.html');
 });
 
+app.get('/testing', function (req, res) {
+    res.redirect('/templates/sampleEmpHtml.html');
+});
+
 app.listen(3000, function (req, res) {
     console.log("Listening to port 3000");
 });

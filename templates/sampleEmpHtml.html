@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unit Testing Stuff</title>
+</head>
+
+<body ng-app="sampleApp">
+    <div ng-controller="sampleEmpCtrl">
+        {{lastname}}, {{firstname}}
+
+        <button class="btn btn-success" ng-click="update()">Update</button>
+
+        <sample-Emp-Dr></sample-Emp-Dr>
+    </div>
+
+
+
+    <script type="text/javascript" src="/node_modules/angular/angular.js"></script>
+    <script type="text/javascript" src="/assets/js/sampleApp.js"></script>
+    <script type="text/javascript" src="/assets/js/controllers/sampleEmpController.js"></script>
+    <script type="text/javascript" src="/assets/js/services/sampleEmpService.js"></script>
+    <script type="text/javascript" src="/assets/js/directives/sampleDirective.js"></script>
+</body>
+
+</html>
