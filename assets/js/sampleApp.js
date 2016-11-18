@@ -1,3 +1,3 @@
 "USE STRICT"
 
-var sampleApp = angular.module("sampleApp", [])
+var sampleApp = angular.module("sampleApp", []);

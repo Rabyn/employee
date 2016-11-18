@@ -7,6 +7,13 @@ myApp.controller("empController", ["$scope", "empService", function ($scope, emp
         address: "",
         phone: "",
     };
+    /*$scope.formreset = function () {
+    $scope.formfirstName = "Maheshs";
+    $scope.formlastName = "Parashar";
+    $scope.formemail = "MaheshParashar@tutorialspoint.com";
+}*/
+
+    //$scope.formreset();
 
     $scope.resetPersonModel = {};
 

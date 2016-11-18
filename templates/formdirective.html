@@ -1,0 +1,47 @@
+<form name="studentForm" novalidate role="form">
+    <table border="0">
+        <tr>
+            <td>Enter first name:</td>
+            <td>
+                <input name="firstname" type="text" ng-model="empModel.firstname" required>
+                <span style="color:red" ng-show="studentForm.firstname.$dirty && studentForm.firstname.$invalid">
+                        <span ng-show = "studentForm.firstname.$error.required">First Name is required.</span>
+                </span>
+            </td>
+        </tr>
+
+        <tr>
+            <td>Enter last name: </td>
+            <td>
+                <input name="lastname" type="text" ng-model="empModel.lastname" required>
+                <span style="color:red" ng-show="studentForm.lastname.$dirty && studentForm.lastname.$invalid && studentForm.lastname.$touched">
+                        <span ng-show = "studentForm.formlastname.$error.required">Last Name is required.</span>
+                </span>
+            </td>
+        </tr>
+
+        <tr>
+            <td>Email: </td>
+            <td>
+                <input name="email" type="email" ng-model="empModel.email" length="100" required>
+                <span style="color:red" ng-show="studentForm.email.$dirty && studentForm.email.$invalid">
+                        <span ng-show = "studentForm.email.$error.required">Email is required.</span>
+                <span ng-show="studentForm.email.$error.email">Invalid email address.</span>
+                </span>
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <button ng-click="formreset()">Reset</button>
+            </td>
+            <td>
+                <button ng-disabled="studentForm.formfirstname.$dirty &&
+                        studentForm.formfirstname.$invalid || studentForm.formlastname.$dirty &&
+                        studentForm.formlastname.$invalid || studentForm.formemail.$dirty &&
+                        studentForm.formemail.$invalid" ng-click="submit()">Submit</button>
+            </td>
+        </tr>
+
+    </table>
+</form>

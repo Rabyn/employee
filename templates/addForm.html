@@ -7,22 +7,27 @@ col-sm-offset-2 col-md-offset-4
             <h3 class="panel-title">Add Employee Info <small>something!</small></h3>
         </div>
         <div class="panel-body">
-            <form role="form" name="empForm">
+            <form role="form" name="empForm" novalidate>
                 <div class="row">
                     <div class="col-xs-6 col-sm-6 col-md-6">
-                        <div class="form-group">
-                            <input type="text" ng-model="empModel.firstname" class="form-control input-sm floatlabel" placeholder="First Name">
+                        <div class="form-group" ng-class="{'has-error' : empForm.firstname.$invalid && empForm.firstname.$dirty}">
+                            <input type="text" name="firstname" ng-model="empModel.firstname" class="form-control input-sm floatlabel" placeholder="First Name" required>
+                            <span class="error" ng-show="empForm.firstname.$invalid && empForm.firstname.$dirty">Firstname is required.</span>
+
                         </div>
                     </div>
                     <div class="col-xs-6 col-sm-6 col-md-6">
-                        <div class="form-group">
-                            <input type="text" ng-model="empModel.lastname" class="form-control input-sm" placeholder="Last Name">
+                        <div class="form-group" ng-class="{'has-error' : empForm.lastname.$invalid && empForm.lastname.$dirty}">
+                            <input type="text" name="lastname" ng-model="empModel.lastname" class="form-control input-sm" placeholder="Last Name" required>
+                            <span class="error" ng-show="empForm.lastname.$invalid && empForm.lastname.$dirty">Lastname is required.</span>
                         </div>
                     </div>
                 </div>
 
-                <div class="form-group">
-                    <input type="email" ng-model="empModel.email" class="form-control input-sm" placeholder="Email Address">
+                <div class="form-group" ng-class="{'has-error' : empForm.email.$invalid && empForm.email.$dirty}">
+                    <input type="email" name="email" ng-model="empModel.email" class="form-control input-sm" placeholder="Email Address" required>
+                    <span class="error" ng-show="empForm.email.$error.required && empForm.email.$dirty">Email Required</span>
+                    <span class="error" ng-show="empForm.email.$error.email && empForm.email.$dirty">Invalid Email Format</span>
                 </div>
 
                 <div class="row">
@@ -38,7 +43,7 @@ col-sm-offset-2 col-md-offset-4
                     </div>
                 </div>
 
-                <input type="submit" value="Add Record" class="btn btn-info btn-block" ng-click="clickObj.addEmploye(empModel)">
+                <input type="submit" value="Add Record" class="btn btn-info btn-block" ng-disabled="empForm.$invalid" ng-click="clickObj.addEmploye(empModel)">
 
             </form>
             <!-- End Form -->

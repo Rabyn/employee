@@ -24,6 +24,11 @@ app.get('/testing', function (req, res) {
     res.redirect('/templates/sampleEmpHtml.html');
 });
 
+//sample Form
+app.get('/sample-form', function (req, res) {
+    res.redirect('/templates/form.html');
+});
+
 app.listen(3000, function (req, res) {
     console.log("Listening to port 3000");
 });

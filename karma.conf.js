@@ -14,9 +14,17 @@ module.exports = function (config) {
 
 
         // list of files / patterns to load in the browser
-        files: ["/node_modules/jquery/dist/jquery.js",
-                "/node_modules/angular/angular.js",
-                "./test/**/*.js"
+
+        files: ["./node_modules/angular/angular.js",
+                "./node_modules/angular-mocks/angular-mocks.js",
+                "./assets/js/sampleApp.js",
+                "./assets/**/*.js",
+
+                //test files
+                "./test/**/*.js",
+
+                //Html Files
+                "./templates/**/*.html"
     ],
 
 
@@ -28,11 +36,12 @@ module.exports = function (config) {
         // preprocess matching files before serving them to the browser
         // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
         preprocessors: {
-            './templates/*.html': ['ng-html2js']
+            './templates/*.html': ['ng-html2js'],
+            './assets/js/**/*.js': 'coverage',
+            './test/**/*.js': 'coverage'
         },
         ngHtml2JsPreprocessor: {
-            prependPrefix;
-            '/',
+            prependPrefix: '/',
             moduleName: 'testModule'
         },
 
@@ -40,8 +49,12 @@ module.exports = function (config) {
         // test results reporter to use
         // possible values: 'dots', 'progress'
         // available reporters: https://npmjs.org/browse/keyword/karma-reporter
-        reporters: ['progress'],
+        reporters: ['progress', 'coverage'],
 
+        coverageReporter: {
+            type: 'html',
+            dir: 'coverage/'
+        },
 
         // web server port
         port: 9876,
